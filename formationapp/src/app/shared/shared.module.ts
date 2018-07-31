@@ -13,10 +13,13 @@ import { CapitalizePipe } from './pipe/capitalize.pipe';
 import { FilterByStatePipe } from './pipe/filter-by-state.pipe';
 import { StateDirective } from './directives/state.directive';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NgbModule
   ],
 
   declarations: [NavComponent, ItemComponent, CapitalizePipe, FilterByStatePipe, StateDirective],
