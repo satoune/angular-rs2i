@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/containers/home/home.component';
 import { LoginComponent } from './login/contianers/login/login.component';
 import { NotFoundComponent } from './page-not-found/containers/not-found/not-found.component';
@@ -8,16 +8,27 @@ import { ListDelivredComponent } from './items/containers/list-delivred/list-del
 
 const appRoutes: Routes = [
   { path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule',
+  },
+  {
+    path: 'items',
+    loadChildren: './items/items.module#ItemsModule',
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false }
+      {
+        enableTracing: false,
+        preloadingStrategy: PreloadAllModules
+       }
     )
   ],
   exports: [RouterModule]
