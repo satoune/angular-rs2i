@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ItemsRoutingModule } from './items-routing.module';
 
 import { ListComponent } from './containers/list/list.component';
 
@@ -10,7 +11,8 @@ import { AbstractComponent } from './containers/abstract/abstract.component';
 @NgModule({
   imports: [
     CommonModule,
-    SHAREDModule
+    SHAREDModule,
+    ItemsRoutingModule
   ],
   declarations: [ListComponent, ListDelivredComponent, AbstractComponent],
   exports: [ListComponent, ListDelivredComponent]

@@ -11,6 +11,7 @@ import { CollectionService } from '../../../core/services/collection.service';
 export class ItemComponent implements OnInit {
 
   public state = State;
+  public states = Object.values(State);
   @Input() item: Item;
   constructor(private collectionService: CollectionService) { }
 

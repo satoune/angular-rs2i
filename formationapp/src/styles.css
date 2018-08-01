@@ -14,3 +14,6 @@
   color:rgb(63, 63, 165);
 }
 
+body .navbar-light .navbar-nav .nav-link.active {
+  color : rgb(55, 12, 212);
+}

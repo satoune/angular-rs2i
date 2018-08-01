@@ -9,7 +9,11 @@
     <h5 class="card-title">{{ item.name }}</h5>
     <p class="card-text">{{ item.reference }}</p>
     <p class="card-text"> {{ item.delivryDate | date:'fullDate' | capitalize:['aa','bb'] }}</p>
-    <button class="btn btn-primary" *ngIf="state.ALIVRER === item.state" (click)="changeState(state.ENCOURS)">{{ state.ENCOURS}}</button>
-    <button class="btn btn-primary" *ngIf="state.ENCOURS === item.state" (click)="changeState(state.LIVREE)">{{ state.LIVREE}}</button>
+    <!-- <button class="btn btn-primary" *ngIf="state.ALIVRER === item.state" (click)="changeState(state.ENCOURS)">{{ state.ENCOURS}}</button>
+    <button class="btn btn-primary" *ngIf="state.ENCOURS === item.state" (click)="changeState(state.LIVREE)">{{ state.LIVREE}}</button> -->
+
+    <ng-container *ngFor="let state of states">
+        <button class="btn" [ngClass]="{'btn-success': item.state === state, 'btn-warning': item.state !== state}" (click)="changeState(state)">{{ state }}</button>
+      </ng-container>
   </div>
 </div>

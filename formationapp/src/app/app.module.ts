@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
@@ -10,6 +12,7 @@ import { ItemsModule } from './items/items.module';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 @NgModule({
@@ -20,10 +23,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     CoreModule,
     LoginModule,
-    PageNotFoundModule,
     SHAREDModule,
     HomeModule,
     ItemsModule,
+    AppRoutingModule,
+    PageNotFoundModule,
     NgbModule.forRoot()
 
   ],
@@ -31,4 +35,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    // Diagnostic only: inspect router configuration
+    constructor(router: Router) {
+      console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    }
+ }
