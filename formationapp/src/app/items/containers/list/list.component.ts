@@ -17,6 +17,10 @@ export class ListComponent  extends AbstractComponent implements OnDestroy {
 
   ngOnDestroy() {
 
+    super.ngOnDestroy();
   }
-
+  public add(item: Item): void {
+    console.log(item);
+    this.collectionService.add(item);
+  }
 }

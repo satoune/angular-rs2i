@@ -1,0 +1,32 @@
+<div class="container">
+    <form novalidate  (ngSubmit)="process()" [formGroup]="form">
+
+      <div class="form-group">
+        <label for="fullname">Email address</label>
+        <input formControlName="name" type="text"  class="form-control" id="fullname"  placeholder="Enter full name">
+        <div class="alert alert-danger" *ngIf="isError('name')">Champ invalid </div>
+      </div>
+      <div class="form-group">
+        <input type="text"  formControlName="reference" class="form-control"  placeholder="réference">
+        <div class="alert alert-danger" *ngIf="isError('reference')">Champ invalid </div>
+      </div>
+      <div class="form-group">
+          <select class="form-control" formControlName="state">
+              <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+            </select>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+              <input class="form-control" formControlName="delivryDate" placeholder="dd/mm/yyyy" name="dp"  ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                  <img src="/assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                </button>
+              </div>
+            </div>
+        </div>
+
+      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+    </form>
+  </div>

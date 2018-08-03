@@ -9,6 +9,8 @@ export class FilterByStatePipe implements PipeTransform {
   transform(value: any, args?: any): any {
     console.log(args);
     if (args) {
+      console.log('pipe');
+      console.log(value);
       return value ? value.filter(v => v.state === State.LIVREE) : [];
     }
     /*if (args === 'noLivr') {

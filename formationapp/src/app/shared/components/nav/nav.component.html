@@ -1,26 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="/home">{{ title }}</a>
+  <a class="navbar-brand" *ngIf="getConnectedUser() !== ''">Bienvenue {{ getConnectedUser() }}</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-    aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
-    [attr.aria-expanded]="!isCollapsed">
+    aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav" (click)="isCollapsed = !isCollapsed">
-      <li class="nav-item">
-        <a class="nav-link"routerLink="/home" routerLinkActive="active" >Home</a>
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/items/list" routerLinkActive="active" >List</a>
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
+        <a class="nav-link" routerLink="/items/list" routerLinkActive="active">List</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
         <a class="nav-link" routerLink="/items/livrees" routerLinkActive="active">List livrée</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Add</a>
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
+        <a class="nav-link" routerLink="/items/add" routerLinkActive="active">Add</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
+        <a class="nav-link" routerLink="/items/add-reactive" routerLinkActive="active">Add reactive</a>
+      </li>
+      <li class="nav-item" *ngIf="getConnectedUser() === ''">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="getConnectedUser() !== ''">
+        <a class="nav-link" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>

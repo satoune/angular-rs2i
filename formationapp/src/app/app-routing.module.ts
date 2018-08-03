@@ -27,7 +27,8 @@ const appRoutes: Routes = [
       appRoutes,
       {
         enableTracing: false,
-        preloadingStrategy: PreloadAllModules
+        preloadingStrategy: PreloadAllModules,
+        useHash: true
        }
     )
   ],

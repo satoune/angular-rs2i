@@ -3,7 +3,14 @@
     <!-- <span class="state-alivrer" *ngIf="state.ALIVRER === item.state">{{item.state}}</span>
     <span class="state-encours" *ngIf="state.ENCOURS === item.state">{{item.state}}</span>
     <span class="state-livree" *ngIf="state.LIVREE === item.state">{{item.state}}</span> -->
-    <span [appState]="item.state">{{item.state}}</span>
+    <span [appState]="item.state"><b>{{item.state}}</b></span>
+    <button class="btn btn-info float-right">edit
+        <!-- <fa-icon [icon]="faCoffee"></fa-icon>-->
+    </button>
+    <button class="btn btn-info float-right" (click)="delete()">delete
+        <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
+    </button>
+
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
